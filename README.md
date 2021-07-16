@@ -1,4 +1,4 @@
-# ifcGH - generate an ifc file directly from Grasshopper
+# ifcGH - generate an ifc file directly from Grasshopper in Rhino 3D
 ## ifcGH is an open source plugin for Grasshopper in Rhino 3D [Parametricos Ltd.](https://parametricos.com "Parametricos Ltd.") in collaboration with [Wojciech Radaczyński](https://github.com/paireks "Wojciech Radaczyński")
 
 ## Join our Community
