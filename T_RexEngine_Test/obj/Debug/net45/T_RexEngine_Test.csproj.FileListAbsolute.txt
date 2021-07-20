@@ -1,0 +1,92 @@
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\xunit.abstractions.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\xunit.runner.visualstudio.testadapter.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\xunit.runner.reporters.net452.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\xunit.runner.utility.net452.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\T_RexEngine_Test.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\T_RexEngine_Test.pdb
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\GH_IO.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Grasshopper.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Eto.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Rhino.UI.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\RhinoCommon.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\xunit.assert.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\xunit.core.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\xunit.execution.dotnet.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\T-RexEngine.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc4.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Common.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.IO.MemoryModel.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc2x3.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.Logging.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\T-RexEngine.pdb
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc.pdb
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc.xml
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc4.pdb
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc4.xml
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Common.pdb
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Common.xml
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.IO.MemoryModel.pdb
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.IO.MemoryModel.xml
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc2x3.pdb
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc2x3.xml
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.Logging.xml
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.csprojAssemblyReference.cache
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.AssemblyInfoInputs.cache
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.AssemblyInfo.cs
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.csproj.CoreCompileInputs.cache
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.csproj.CopyComplete
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.dll
+E:\Internship\Parametricos\Final\T-Rex\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.pdb
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\xunit.runner.visualstudio.testadapter.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\xunit.runner.reporters.net452.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\xunit.runner.utility.net452.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\xunit.abstractions.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\T_RexEngine_Test.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\T_RexEngine_Test.pdb
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\GH_IO.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Grasshopper.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Eto.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Rhino.UI.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\RhinoCommon.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\xunit.assert.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\xunit.core.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\xunit.execution.dotnet.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\T-RexEngine.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc4.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Common.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.IO.MemoryModel.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc2x3.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.Logging.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\T-RexEngine.pdb
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc.pdb
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc.xml
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc4.pdb
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc4.xml
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Common.pdb
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Common.xml
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.IO.MemoryModel.pdb
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.IO.MemoryModel.xml
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc2x3.pdb
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Xbim.Ifc2x3.xml
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.Logging.xml
+E:\Github Repos\ifcGH\T_RexEngine_Test\bin\Debug\net45\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Github Repos\ifcGH\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.csprojAssemblyReference.cache
+E:\Github Repos\ifcGH\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.AssemblyInfoInputs.cache
+E:\Github Repos\ifcGH\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.AssemblyInfo.cs
+E:\Github Repos\ifcGH\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.csproj.CoreCompileInputs.cache
+E:\Github Repos\ifcGH\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.csproj.CopyComplete
+E:\Github Repos\ifcGH\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.dll
+E:\Github Repos\ifcGH\T_RexEngine_Test\obj\Debug\net45\T_RexEngine_Test.pdb

@@ -1,0 +1,564 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Manual for T-Rex</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-require-zoom-fix foreignobject { font-size: var(--mermaid-font-zoom); }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows'>
+<div id='write'  class=''><h1><a name="manual-for-t-rex-020" class="md-header-anchor"></a><span>Manual for T-Rex 0.2.0</span></h1><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n210"><a class="md-toc-inner" href="#manual-for-t-rex-020">Manual for T-Rex 0.2.0</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n213"><a class="md-toc-inner" href="#introduction">Introduction</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n214"><a class="md-toc-inner" href="#info">Info</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n228"><a class="md-toc-inner" href="#license-mit-license">License (MIT License)</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n232"><a class="md-toc-inner" href="#how-does-t-rex-work">How does T-Rex work</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n244"><a class="md-toc-inner" href="#units">Units</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n248"><a class="md-toc-inner" href="#tolerances">Tolerances</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n258"><a class="md-toc-inner" href="#concrete">Concrete</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n259"><a class="md-toc-inner" href="#about">About</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n262"><a class="md-toc-inner" href="#components">Components</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n263"><a class="md-toc-inner" href="#profile">Profile</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n267"><a class="md-toc-inner" href="#profile-to-elements">Profile To Elements</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n272"><a class="md-toc-inner" href="#mesh-to-elements">Mesh To Elements</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n280"><a class="md-toc-inner" href="#element-group-info">Element Group Info</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n283"><a class="md-toc-inner" href="#ifc">IFC</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n284"><a class="md-toc-inner" href="#about-n284">About</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n287"><a class="md-toc-inner" href="#components-n287">Components</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n288"><a class="md-toc-inner" href="#create-ifc">Create IFC</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n300"><a class="md-toc-inner" href="#properties">Properties</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n301"><a class="md-toc-inner" href="#about-n301">About</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n303"><a class="md-toc-inner" href="#components-n303">Components</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n304"><a class="md-toc-inner" href="#bending-roller">Bending Roller</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n310"><a class="md-toc-inner" href="#cover-dimensions">Cover Dimensions</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n318"><a class="md-toc-inner" href="#material">Material</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n325"><a class="md-toc-inner" href="#rebar-properties">Rebar Properties</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n329"><a class="md-toc-inner" href="#rebar-shape">Rebar Shape</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n330"><a class="md-toc-inner" href="#about-n330">About</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n333"><a class="md-toc-inner" href="#components-n333">Components</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n334"><a class="md-toc-inner" href="#curve-to-rebar-shape">Curve To Rebar Shape</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n338"><a class="md-toc-inner" href="#polyline-to-rebar-shape">Polyline To Rebar Shape</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n342"><a class="md-toc-inner" href="#l-bar-shape">L-Bar Shape</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n344"><a class="md-toc-inner" href="#spacer-shape">Spacer Shape</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n347"><a class="md-toc-inner" href="#stirrup-shape">Stirrup Shape</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n357"><a class="md-toc-inner" href="#rectangle-to-line-bar-shape">Rectangle To Line Bar Shape</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n361"><a class="md-toc-inner" href="#rectangle-to-stirrup-shape">Rectangle To Stirrup Shape</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n364"><a class="md-toc-inner" href="#rectangle-to-u-bar-shape">Rectangle To U-Bar Shape</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n368"><a class="md-toc-inner" href="#rebar-spacing">Rebar Spacing</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n369"><a class="md-toc-inner" href="#about-n369">About</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n372"><a class="md-toc-inner" href="#id">Id</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n374"><a class="md-toc-inner" href="#components-n374">Components</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n375"><a class="md-toc-inner" href="#curve-spacing">Curve Spacing</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n383"><a class="md-toc-inner" href="#custom-spacing">Custom Spacing</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n391"><a class="md-toc-inner" href="#vector-count-spacing">Vector Count Spacing</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n394"><a class="md-toc-inner" href="#vector-length-spacing">Vector Length Spacing</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n413"><a class="md-toc-inner" href="#rebar-group-info">Rebar Group Info</a></span></p></div><h2><a name="introduction" class="md-header-anchor"></a><span>Introduction</span></h2><h3><a name="info" class="md-header-anchor"></a><span>Info</span></h3><p><img src="Img\TRexLogoOk.png" alt="TRexLogoOk" style="zoom:67%;" /></p><p><span>Hello! Thank you for using T-Rex! ;)</span></p><p><span>T-Rex is an open-source plug-in for Grasshopper.</span></p><p><strong><span>Purpose: </span></strong><span>T-Rex can help you to create parametric models of reinforced concrete structures with Grasshopper.</span></p><p><strong><span>Requirements:</span></strong><span> Rhino 6 or Rhino 7</span></p><p><strong><span>Status:</span></strong><span> BETA, Work in progress</span></p><p><strong><span>Contact:</span></strong><span> If you have any specific questions, email me: </span><a href='mailto:w.radaczynski@gmail.com' target='_blank' class='url'>w.radaczynski@gmail.com</a></p><p><strong><span>Website:</span></strong><span> </span><a href='http://www.code-structures.com' target='_blank' class='url'>www.code-structures.com</a></p><p><strong><span>Videos:</span></strong><span> You can find videos on my YT channel here: </span><a href='https://www.youtube.com/channel/UCfXkMo1rOMhKGBoNwd7JPsw' target='_blank' class='url'>https://www.youtube.com/channel/UCfXkMo1rOMhKGBoNwd7JPsw</a></p><p><strong><span>Used libraries:</span></strong></p><ul><li><span>xbim: for IFC export: </span><a href='https://docs.xbim.net/' target='_blank' class='url'>https://docs.xbim.net/</a><span>, license: </span><a href='https://docs.xbim.net/license/license.html' target='_blank' class='url'>https://docs.xbim.net/license/license.html</a></li></ul><h3><a name="license-mit-license" class="md-header-anchor"></a><span>License (MIT License)</span></h3><p><span>Copyright © 2021 Wojciech Radaczyński</span></p><p><span>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and</span>
+<span>associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction,</span>
+<span>including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span>and/or sell copies of the Software, and to permit persons to whom the Software is furnished to</span>
+<span>do so, subject to the following conditions:</span>
+<span>The above copyright notice and this permission notice shall be included in all copies or</span>
+<span>substantial portions of the Software.</span></p><p><span>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,</span>
+<span>INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A</span>
+<span>PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR</span>
+<span>COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN</span>
+<span>AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION</span>
+<span>WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</span></p><h3><a name="how-does-t-rex-work" class="md-header-anchor"></a><span>How does T-Rex work</span></h3><p><span>T-Rex will help you to model thousands of the rebars with Grasshopper. The secret of it&#39;s speed is in the discrete mesh representation of the rebars.</span></p><p><span>Basically if you want to model a pipe, that will represent a single bar, using only built-in components: you&#39;ll probably choose &quot;Pipe&quot; component. Pipe component is really precise (as all of the NURBS-based components), the baked model of the pipe would be lightweight, but the problem is: it&#39;s also will be pretty slow. It will be visible if you decide to create, let&#39;s say, thousands of them. The more complex the shape of the bar is, the more time it will take to create a preview.</span></p><p><span>T-Rex will create a discrete mesh model of the pipe, which is </span><strong><span>less precise</span></strong><span>, but it will render </span><strong><span>much quicker</span></strong><span>, which is a huge advantage when we talk about parametric modeling, that should be executed just-in-time.</span></p><p><img src="Img\MeshNurbs.png" alt="MeshNurbs" style="zoom:80%;" /></p><p><span>You can see the difference in precision on the image above. Let&#39;s look at the speed:</span><img src="Img\MeshSpeed.png" referrerpolicy="no-referrer" alt="MeshSpeed"></p><p><span>Meshes even for 10000 rebars works pretty fast. Making the same with the pipes makes slider freeze for some time, depending on the shape of the pipe.</span></p><p><strong><span>Important note:</span></strong><span> Discrete models are problematic when you will try to measure things on your own. For example, if you decide to measure the volume by taking a mesh, then you&#39;ll get wrong results:</span></p><p><img src="Img\MeshVsNurbsVolume.png" alt="MeshNurbsVolume" style="zoom:67%;" /></p><p><span>Volume of rebar with diameter: 8 and length: 100 should be around 5026.5482. As you can see Pipe component will give you a precise model and the result is close enough, but the discrete mesh result is far from the truth. That&#39;s why you shouldn&#39;t measure the mesh results. You should use proper components that calculate it by themselves:</span></p><p><img src="Img\ComponentVolume.png" referrerpolicy="no-referrer" alt="ComponentVolume"></p><p><span>For this reason: remember, that if you&#39;re using Mesh To Elements component - the volume and mass calculated will not be precise, because of this type of representation.</span></p><h3><a name="units" class="md-header-anchor"></a><span>Units</span></h3><p><span>Grasshopper is unit-less, you can read more about it there: </span><a href='https://www.grasshopper3d.com/forum/topics/units-m-ft' target='_blank' class='url'>https://www.grasshopper3d.com/forum/topics/units-m-ft</a></p><p><span>So is the T-Rex. It means that you will have to choose your unit system by yourself. If you choose to use meters then make sure that every dimension is in meters and the Rhino document related to Grasshopper script is set to meters.</span></p><p><strong><span>Important note:</span></strong><span> In T-Rex 0.2.0 IFC export is always treating the model as it is in </span><strong><span>millimeters</span></strong><span>.</span></p><h3><a name="tolerances" class="md-header-anchor"></a><span>Tolerances</span></h3><p><span>There are two places where you have to set proper tolerances values:</span></p><ul><li><p><span>Rhino document</span></p><p><span>To understand better Rhino&#39;s tolerances - read this article: </span><a href='https://wiki.mcneel.com/rhino/faqtolerances' target='_blank' class='url'>https://wiki.mcneel.com/rhino/faqtolerances</a></p><p><strong><span>Important note:</span></strong><span> Grasshopper also takes tolerances settings from Rhino document&#39;s settings. You can read about it there: </span><a href='https://www.grasshopper3d.com/forum/topics/gh-tolerance?commentId=2985220%3AComment%3A908767' target='_blank' class='url'>https://www.grasshopper3d.com/forum/topics/gh-tolerance?commentId=2985220%3AComment%3A908767</a></p></li><li><p><span>Inside the T-Rex components</span></p><p><span>There are a few components that require Tolerance value as input. Most of the time default values will be sufficient. To understand it more: you will have to see the source code.</span></p></li></ul><h2><a name="concrete" class="md-header-anchor"></a><span>Concrete</span></h2><h3><a name="about" class="md-header-anchor"></a><span>About</span></h3><p><span>Concrete components will help you to create typical shapes of concrete elements.</span></p><p><span>In fact you will model a group of elements at once. This way it is easier to create smaller IFC files, because the reference to the same property (like materials, profiles, etc.) will be putted once for whole group.</span></p><h3><a name="components" class="md-header-anchor"></a><span>Components</span></h3><h4><a name="profile" class="md-header-anchor"></a><span>Profile</span></h4><p><img src="Img\Profile.png" referrerpolicy="no-referrer" alt="Profile"></p><p><span>All points that defines profile should be placed on XY Plane.</span></p><p><span>Profile can be used to create elements with Profile To Elements.</span></p><h4><a name="profile-to-elements" class="md-header-anchor"></a><span>Profile To Elements</span></h4><p><span>When we have an element, that can be represented as Sweep along the curve: we can use this component. At first we need to create the profile with Profile component. Then we can use this profile to sweep it along given lines:</span></p><p><img src="Img\ProfileToElement.png" referrerpolicy="no-referrer" alt="ProfileToElement"></p><p><span>It&#39;s not easy to obtain needed position of the profile along the line. That&#39;s why there is Rotation Angle as input, which allows to rotate the profiles of elements.</span></p><p><span>Profile Elements look empty inside, but this just the visual representation, they are treated as if they were closed solids - you can see it after IFC export.</span></p><h4><a name="mesh-to-elements" class="md-header-anchor"></a><span>Mesh To Elements</span></h4><p><span>Mesh elements should be used when the geometry of an element is complex and it cannot be represented in any different way. Meshes have to store a lot of information (about vertices coordinates, faces), which will affect the size of the IFC file.</span></p><p><span>Only closed meshes are allowed as input.</span></p><p><img src="Img\Dino.png" referrerpolicy="no-referrer" alt="Dino"></p><p><img src="Img\Stairs.png" referrerpolicy="no-referrer" alt="Stairs"></p><p><span>If the same element should be placed in different places, then put use multiple Insert Planes as input:</span></p><p><img src="Img\Tube.png" referrerpolicy="no-referrer" alt="Tube"></p><p><strong><span>Important note:</span></strong><span> remember, that mesh representation is not always precise, so the Volume and Mass calculated would not precise as well, because of the discretization.</span></p><h4><a name="element-group-info" class="md-header-anchor"></a><span>Element Group Info</span></h4><p><span>This component allows to read the properties of the group of elements.</span></p><p><span>Remember that Volume and Mass is a sum of the whole group.</span></p><h2><a name="ifc" class="md-header-anchor"></a><span>IFC</span></h2><h3><a name="about-n284" class="md-header-anchor"></a><span>About</span></h3><p><span>Tools for IFC files creation.</span></p><p><span>T-Rex is using xbim library for IFC export.</span></p><p><span>T-Rex 0.2.0 allows only models in </span><strong><span>millimeters</span></strong><span> to be exported to IFC.</span></p><h3><a name="components-n287" class="md-header-anchor"></a><span>Components</span></h3><h4><a name="create-ifc" class="md-header-anchor"></a><span>Create IFC</span></h4><p><span>Component creates an .ifc file of given groups of elements. Schema supported: </span><strong><span>IFC4x1</span></strong><span>.</span></p><p><span>I test IFC export on 2 free IFC viewers:</span></p><ul><li><span>BIMvision (</span><a href='https://bimvision.eu/' target='_blank' class='url'>https://bimvision.eu/</a><span>)</span></li><li><span>Open IFC Viewer (</span><a href='https://openifcviewer.com/' target='_blank' class='url'>https://openifcviewer.com/</a><span>)</span></li></ul><p><span>You have to understand one thing: IFC is so complex, that depending on a software you&#39;re using for import - the results might differ. Some software can miss some types of geometries or information. In my opinion it&#39;s because of the complexity of the IFC schema, which makes it hard for each software developer to support all these features, types of geometries and so on.</span></p><p><img src="Img\IFC.png" referrerpolicy="no-referrer" alt="IFC"></p><p><span>To Groups input you can plug Rebar Groups and Element Groups.</span></p><p><span>Path should have .ifc extension at the end.</span></p><h2><a name="properties" class="md-header-anchor"></a><span>Properties</span></h2><h3><a name="about-n301" class="md-header-anchor"></a><span>About</span></h3><p><span>Properties components will help you to put the informations about different properties, that will be used later to create different objects.</span></p><h3><a name="components-n303" class="md-header-anchor"></a><span>Components</span></h3><h4><a name="bending-roller" class="md-header-anchor"></a><span>Bending Roller</span></h4><p><span>Not all of the Rebar Shape components, but many of them, require Bending Roller as input. This values are required to make fillets of the polyline correctly. Look at the image below to see how it works:</span></p><p><img src="Img\BendingRoller.png" referrerpolicy="no-referrer" alt="BendingRoller"></p><p><span>60 is just an example: the proper value is for you to decide, it is often described in different standards / documents, and it can depend on things like for example diameter of the rebar or other factors.</span></p><p><span>To understand Tolerance and Angle Tolerance check Tolerances chapter. For most of the cases default value will be sufficient. Basically those values will be used to create proper fillets of given polyline.</span></p><p><strong><span>Important note:</span></strong><span> If the value of Bending Roller Diameter will be too large, then in some cases Rebar Shape can be created wrong. Check the dimensions of the Rebar Shape&#39;s geometry to make sure if it&#39;s correct.</span></p><h4><a name="cover-dimensions" class="md-header-anchor"></a><span>Cover Dimensions</span></h4><p><span>This component will create an offset for Rebar Shapes components that require Rectangle as an input.</span></p><p><img src="Img\CoverDimensions.png" referrerpolicy="no-referrer" alt="CoverDimensions"></p><p><span>To see how it works we have to look on a Rebar Shape result. If you plug 0 for all of the inputs, you will get this:</span></p><p><img src="Img\CoverDimensions0.png" referrerpolicy="no-referrer" alt="CoverDimensions0"></p><p><span>So if you want to offset this stirrup / bar in the boundary rectangle, you will have to change a values:</span></p><p><img src="Img\CoverDimension1.png" referrerpolicy="no-referrer" alt="CoverDimension1"></p><p><span>It works similar for all of the Rebar Shape components that require Rectangle input.</span></p><h4><a name="material" class="md-header-anchor"></a><span>Material</span></h4><p><span>Material will help you to add some informations about material of the objects.</span></p><p><img src="Img\Material.png" referrerpolicy="no-referrer" alt="Material"></p><p><span>The important thing is density, as it will affect the result of calculating the weight of the objects.</span></p><p><strong><span>Check the Units chapter to find more informations.</span></strong></p><p><span>Basically, if you want to have a density 7850 kg/m^3 by plugging slider with the value 7850, then you have to make sure that all of the other dimensions are in meters. Then you will get the result of weight in kilograms.</span></p><p><span>If your whole model is in millimeters, and you still want to get the weight in kilograms, then you have to plug in the density in kg/mm^3.</span></p><h4><a name="rebar-properties" class="md-header-anchor"></a><span>Rebar Properties</span></h4><p><span>This component will take Diameter and Material as an input.</span></p><p><img src="Img\RebarProperties.png" referrerpolicy="no-referrer" alt="RebarProperties"></p><p><span>Then you can plug those properties to create Rebar Shapes objects.</span></p><h2><a name="rebar-shape" class="md-header-anchor"></a><span>Rebar Shape</span></h2><h3><a name="about-n330" class="md-header-anchor"></a><span>About</span></h3><p><span>Rebar Shape components will help you to create different shapes of the rebars. Those objects can be later used to create objects called Rebar Group.</span></p><p><span>Every component from that section will output Rebar Shape and Mesh. Mesh is a discrete model of the rebar (you can read more about it in the Introduction chapter). Rebar Shape will be useful to create Rebar Group.</span></p><h3><a name="components-n333" class="md-header-anchor"></a><span>Components</span></h3><h4><a name="curve-to-rebar-shape" class="md-header-anchor"></a><span>Curve To Rebar Shape</span></h4><p><span>This component converts curve to a Rebar Shape. You can basically draw any curve you&#39;d like and convert it to the rebar.</span></p><p><img src="Img\CurveToRebarShape.png" referrerpolicy="no-referrer" alt="CurveToRebarShape"></p><p><img src="Img\CurveToRebarExample.png" alt="CurveToRebarExample" style="zoom:50%;" /></p><h4><a name="polyline-to-rebar-shape" class="md-header-anchor"></a><span>Polyline To Rebar Shape</span></h4><p><span>This component converts polyline to Rebar Shape. It requires one more output then Curve To Rebar Shape: Bending Roller. So at first this polyline will be filleted, and then it will be translated to Rebar Shape.</span></p><p><img src="Img\PolylineToRebarShape.png" referrerpolicy="no-referrer" alt="PolylineToRebarShape"></p><p><span>There are few requirements: polyline can&#39;t be straight and there need to be at least 3 points of polyline - those requirements are to make sure that it is possible to create fillets. If you want to draw a straight line, and turn it to Rebar Shape - use Curve To Rebar Shape component instead.</span></p><h4><a name="l-bar-shape" class="md-header-anchor"></a><span>L-Bar Shape</span></h4><p><img src="Img\L-BarShape.png" referrerpolicy="no-referrer" alt="L-BarShape"></p><h4><a name="spacer-shape" class="md-header-anchor"></a><span>Spacer Shape</span></h4><p><img src="Img\SpacerShape.png" referrerpolicy="no-referrer" alt="SpacerShape"></p><p><img src="Img\SpacerShape3d.png" alt="SpacerShape3d" style="zoom:67%;" /></p><h4><a name="stirrup-shape" class="md-header-anchor"></a><span>Stirrup Shape</span></h4><p><img src="Img\StirrupShape.png" referrerpolicy="no-referrer" alt="StirrupShape"></p><p><span>Stirrup Shape requires additional info about the type of the hooks. Right now there are 2 types:</span></p><ul><li><p><span>Type = 0:</span></p><p><img src="Img\StirrupShapeHook0.png" referrerpolicy="no-referrer" alt="StirrupShapeHook0"></p></li><li><p><span>Type = 1:</span></p><p><img src="Img\StirrupShapeHook1.png" referrerpolicy="no-referrer" alt="StirrupShapeHook1"></p></li></ul><h4><a name="rectangle-to-line-bar-shape" class="md-header-anchor"></a><span>Rectangle To Line Bar Shape</span></h4><p><img src="Img\RectangleToLine.png" referrerpolicy="no-referrer" alt="RectangleToLine"></p><p><span>You can also change the position from 0 to 3, for example let&#39;s try with type 1:</span></p><p><img src="Img\RectangleToLinePosition1.png" referrerpolicy="no-referrer" alt="RectangleToLinePosition1"></p><h4><a name="rectangle-to-stirrup-shape" class="md-header-anchor"></a><span>Rectangle To Stirrup Shape</span></h4><p><img src="Img\RectangleToStirrup.png" referrerpolicy="no-referrer" alt="RectangleToStirrup"></p><p><span>Check Stirrup Shape to see how different hooks for stirrups work.</span></p><h4><a name="rectangle-to-u-bar-shape" class="md-header-anchor"></a><span>Rectangle To U-Bar Shape</span></h4><p><img src="Img\RectangleToUBar.png" referrerpolicy="no-referrer" alt="RectangleToUBar"></p><p><span>Position input works similar to the Rectangle To Line Bar Shape, for example if you set type 1:</span></p><p><img src="Img\RectangleToUBarPosition1.png" referrerpolicy="no-referrer" alt="RectangleToUBarPosition1"></p><h2><a name="rebar-spacing" class="md-header-anchor"></a><span>Rebar Spacing</span></h2><h3><a name="about-n369" class="md-header-anchor"></a><span>About</span></h3><p><span>These components are useful to create objects called Rebar Groups. They will take your Rebar Shape and generate group of rebars with proper spacing.</span></p><p><span>There is one exception: Custom Spacing component that doesn&#39;t create any spacing, you have to plug Rebar Shapes that have already spaces between them there.</span></p><h4><a name="id" class="md-header-anchor"></a><span>Id</span></h4><p><span>The Rebar Spacing components require Id which is an integer number. That Id is only for you, to help you organize those groups.</span></p><h3><a name="components-n374" class="md-header-anchor"></a><span>Components</span></h3><h4><a name="curve-spacing" class="md-header-anchor"></a><span>Curve Spacing</span></h4><p><span>This component is useful to create spacing that has a complex geometry. It allows the user to draw a curve and use it as an input of the spacing geometry. That curve will be divided into planes that are perpendicular to the curve, so the rebars will be oriented in those new division planes.</span></p><p><img src="Img\CurveSpacing.png" referrerpolicy="no-referrer" alt="CurveSpacing"></p><p><img src="Img\CurveSpacingCircle.png" referrerpolicy="no-referrer" alt="CurveSpacingCircle"></p><p><span>The issue is that sometimes those new division planes are rotated in the different way that we want. That&#39;s why there is Rotation Angle input - so you can rotate it as you want.</span></p><p><span>If you right click this input you can click Degrees, so there is no need to play with radians.</span></p><p><span>Shape&#39;s Origin Plane = World XY Plane. Basically you should place the Rebar Shape inside XY Plane, because it will be copied from this plane to all of the division planes that were created along the curve.</span></p><p><img src="Img\DivisionPlanes.png" referrerpolicy="no-referrer" alt="DivisionPlanes"></p><h4><a name="custom-spacing" class="md-header-anchor"></a><span>Custom Spacing</span></h4><p><span>This component will help you to create Rebar Group with custom spacing, which means you will have to create spacing between Rebar Shapes by yourself, and then connect all of those Rebar Shapes to the component.</span></p><p><img src="Img\CustomSpacing.png" referrerpolicy="no-referrer" alt="CustomSpacing"></p><p><span>Basically it takes all of the Rebar Shapes you connect and add it to the one Rebar Group.</span></p><p><span>For the example above - Vector Count Spacing or Vector Length Spacing components will be better. Custom Spacing will be helpful where you want for example to create one group for rebars with different lengths.</span></p><p><img src="Img\TriangleSpacing.png" referrerpolicy="no-referrer" alt="TriangleSpacing"></p><p><span>It can be also only one Rebar Shape without any spacing.</span></p><p><img src="Img\Custom1Shape.png" referrerpolicy="no-referrer" alt="Custom1Shape"></p><h4><a name="vector-count-spacing" class="md-header-anchor"></a><span>Vector Count Spacing</span></h4><p><span>This component takes Rebar Shape and treat it as the first rebar of the group (start of the spacing). Vector defines where the end of the spacing will appear. Count defines how many rebars will be in this group. Spacing between all of those bars will be the same from start to the end of the input Vector.</span></p><p><img src="Img\VectorCountSpacing.png" referrerpolicy="no-referrer" alt="VectorCountSpacing"></p><h4><a name="vector-length-spacing" class="md-header-anchor"></a><span>Vector Length Spacing</span></h4><p><span>This component is similar to Vector Count Spacing, the difference is: you don&#39;t define Count (how many rebars you need in the group) but you have to define Spacing Length instead. There are different types of spacing so let&#39;s go through all of them:</span></p><ul><li><p><span>Type: 0 - Constant spacing with different last one</span></p><p><img src="Img\VLS0.png" referrerpolicy="no-referrer" alt="VLS0"></p></li><li><p><span>Type: 1 - Constant spacing with different first one</span></p><p><img src="Img\VLS1.png" referrerpolicy="no-referrer" alt="VLS1"></p></li><li><p><span>Type: 2 - Constant spacing with first and last different</span></p><p><img src="Img\VLS2.png" referrerpolicy="no-referrer" alt="VLS2"></p></li><li><p><span>Type: 3 - Smaller (or the same) spacing length, but constant for all bars from start to end</span></p><p><img src="Img\VLS3.png" referrerpolicy="no-referrer" alt="VLS3"></p></li></ul><p><span>Tolerance default value should be sufficient for most of the cases, to understand it more you&#39;ll need to check the source code.</span></p><p><strong><span>Important note:</span></strong><span> For some combination of Vector and Spacing Length you&#39;ll get the result in which rebars are in collision with each others, for example:</span></p><p><img src="Img\Collision.png" referrerpolicy="no-referrer" alt="Collision"></p><p><span>Most of the time it will be visible, but sometimes the distance between collided bars is so small, that you cannot barely see the difference if one rebar is inside an another or is it just one bar. That&#39;s why you should always make sure that the Rebar Group is created correctly.</span></p><h4><a name="rebar-group-info" class="md-header-anchor"></a><span>Rebar Group Info</span></h4><p><span>This component show all of the informations about created Rebar Group.</span></p><p><img src="Img\RebarGroupInfo.png" alt="RebarGroupInfo" style="zoom:67%;" /></p><p><span>All of those information are unit-less - check Unit chapter to read more about it.</span></p><p><strong><span>Important note:</span></strong><span> Grasshopper often shows values in the scientific notation. The calculated value can be more precise in reality. To see the value in a format you want, you can use Grasshopper component called Format. You can read more about it here: </span><a href='https://www.grasshopper3d.com/forum/topics/formatting-numbers-in-grasshopper' target='_blank' class='url'>https://www.grasshopper3d.com/forum/topics/formatting-numbers-in-grasshopper</a></p><p><img src="Img\Format.png" alt="Format" style="zoom:67%;" /></p><p><span> </span></p></div>
+</body>
+</html>

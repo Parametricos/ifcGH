@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Github Repos\\ifcGH\\T_RexEngine_Test\\T_RexEngine_Test.csproj": {}
+  },
+  "projects": {
+    "E:\\Github Repos\\ifcGH\\T-RexEngine\\T_RexEngine.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Github Repos\\ifcGH\\T-RexEngine\\T_RexEngine.csproj",
+        "projectName": "T_RexEngine",
+        "projectPath": "E:\\Github Repos\\ifcGH\\T-RexEngine\\T_RexEngine.csproj"
+      },
+      "frameworks": {
+        "net45": {}
+      }
+    },
+    "E:\\Github Repos\\ifcGH\\T_RexEngine_Test\\T_RexEngine_Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Github Repos\\ifcGH\\T_RexEngine_Test\\T_RexEngine_Test.csproj",
+        "projectName": "T_RexEngine_Test",
+        "projectPath": "E:\\Github Repos\\ifcGH\\T_RexEngine_Test\\T_RexEngine_Test.csproj",
+        "packagesPath": "C:\\Users\\sachi\\.nuget\\packages\\",
+        "outputPath": "E:\\Github Repos\\ifcGH\\T_RexEngine_Test\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\sachi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net45"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "targetAlias": "net45",
+            "projectReferences": {
+              "E:\\Github Repos\\ifcGH\\T-RexEngine\\T_RexEngine.csproj": {
+                "projectPath": "E:\\Github Repos\\ifcGH\\T-RexEngine\\T_RexEngine.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net45": {
+          "targetAlias": "net45",
+          "dependencies": {
+            "Grasshopper": {
+              "target": "Package",
+              "version": "[6.24.20079.23341, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.4.0, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
