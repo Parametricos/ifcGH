@@ -1,0 +1,88 @@
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\T-RexEngine.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\T-RexEngine.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Esent.Interop.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Microsoft.Extensions.Logging.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\System.Buffers.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\System.Memory.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Common.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc2x3.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc4.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.IO.Esent.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.IO.MemoryModel.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Tessellator.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Esent.Interop.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Esent.Interop.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Microsoft.Extensions.Logging.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\System.Buffers.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\System.Memory.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Common.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Common.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc2x3.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc2x3.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc4.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Ifc4.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.IO.Esent.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.IO.Esent.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.IO.MemoryModel.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.IO.MemoryModel.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Tessellator.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\bin\Debug\Xbim.Tessellator.xml
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\obj\Debug\T_RexEngine.csproj.CoreCompileInputs.cache
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\obj\Debug\T_RexEngine.csproj.CopyComplete
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\obj\Debug\T-RexEngine.dll
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\obj\Debug\T-RexEngine.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-RexEngine\obj\Debug\T_RexEngine.csprojAssemblyReference.cache
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\T-RexEngine.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\T-RexEngine.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Esent.Interop.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Microsoft.Extensions.Logging.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\System.Buffers.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\System.Memory.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Common.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc2x3.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc4.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.IO.Esent.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.IO.MemoryModel.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Tessellator.dll
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Esent.Interop.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Esent.Interop.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Microsoft.Extensions.Logging.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\System.Buffers.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\System.Memory.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Common.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Common.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc2x3.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc2x3.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc4.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Ifc4.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.IO.Esent.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.IO.Esent.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.IO.MemoryModel.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.IO.MemoryModel.xml
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Tessellator.pdb
+E:\Github Repos\ifcGH\T-RexEngine\bin\Debug\Xbim.Tessellator.xml
+E:\Github Repos\ifcGH\T-RexEngine\obj\Debug\T_RexEngine.csprojAssemblyReference.cache
+E:\Github Repos\ifcGH\T-RexEngine\obj\Debug\T_RexEngine.csproj.CoreCompileInputs.cache
+E:\Github Repos\ifcGH\T-RexEngine\obj\Debug\T_RexEngine.csproj.CopyComplete
+E:\Github Repos\ifcGH\T-RexEngine\obj\Debug\T-RexEngine.dll
+E:\Github Repos\ifcGH\T-RexEngine\obj\Debug\T-RexEngine.pdb

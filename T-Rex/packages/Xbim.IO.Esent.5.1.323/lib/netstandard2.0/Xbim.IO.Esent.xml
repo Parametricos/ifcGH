@@ -1,0 +1,1672 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Xbim.IO.Esent</name>
+    </assembly>
+    <members>
+        <member name="F:Xbim.IO.Esent.EsentCursor.Instance">
+            <summary>
+            The ESENT instance the cursor is opened against.
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentCursor.Sesid">
+            <summary> 
+            The ESENT session the cursor is using.
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentCursor.DbId">
+            <summary>
+            ID of the opened database.
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentCursor.Table">
+            <summary>
+            ID of the opened data table.
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentCursor.GlobalsTable">
+            <summary>
+            Global Table
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentCursor.CreateGlobalsTable(Microsoft.Isam.Esent.Interop.JET_SESID,Microsoft.Isam.Esent.Interop.JET_DBID)">
+            <summary>
+            Create the globals table.
+            </summary>
+            <param name="sesid">The session to use.</param>
+            <param name="dbid">The database to create the table in.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentCursor.BeginTransaction">
+            <summary>
+            Begin a new transaction for this cursor.
+            </summary>
+            <returns>The new transaction.</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentCursor.BeginReadOnlyTransaction">
+            <summary>
+            Begin a new transaction for this cursor. This is the cheapest
+            transaction type because it returns a struct and no separate
+            commit call has to be made.
+            </summary>
+            <returns>The new transaction.</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentCursor.Flush">
+            <summary>
+            Generate a null database update that we can wrap in a non-lazy transaction.
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.#ctor(Xbim.IO.Esent.EsentModel,System.String,Microsoft.Isam.Esent.Interop.OpenDatabaseGrbit)">
+            <summary>
+            Constructs a table and opens it
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.SetEntityRowValues(System.Int32,System.Int16,System.Byte[],System.Nullable{System.Boolean})">
+            <summary>
+            Sets the values of the fields, no update is performed
+            </summary>
+            <param name="primaryKey">The label of the entity</param>
+            <param name="type">The index of the type of the entity</param>
+            <param name="data">The property data</param>
+            <param name="index">property data</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.SetEntityIndexRowValues(System.Int16,System.Int32,System.Int32)">
+            <summary>
+            Sets the values prior to update to write to the entity index table 
+            </summary>
+            <param name="primaryKey">The entity label</param>
+            <param name="type">The Ifc Type ID</param>
+            <param name="indexKey">The secondary key to index by</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.UpdateEntity(Xbim.Common.IPersistEntity)">
+            <summary>
+            Updates an entity, assumes a valid transaction is running
+            </summary>
+            <param name="toWrite"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.UpdateEntity(System.Int32,System.Int16,System.Collections.Generic.IEnumerable{System.Int32},System.Byte[],System.Nullable{System.Boolean})">
+            <summary>
+            Updates an entity, assumes a valid transaction is running
+            </summary>
+            <param name="currentLabel">Primary key/label</param>
+            <param name="typeId">Type identifer</param>
+            <param name="indexKeys">Search keys to use specifiy null if no indices</param>
+            <param name="data">property data</param>
+            <param name="indexed">property data</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.AddEntity(Xbim.Common.IPersistEntity)">
+            <summary>
+            Adds an entity, assumes a valid transaction is running
+            </summary>
+            <param name="toWrite"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.AddEntity(System.Int32,System.Int16,System.Collections.Generic.IEnumerable{System.Int32},System.Byte[],System.Nullable{System.Boolean},System.Nullable{Xbim.IO.Esent.EsentLazyDBTransaction})">
+            <summary>
+            Adds an entity, assumes a valid transaction is running
+            </summary>
+            <param name="currentLabel">Primary key/label</param>
+            <param name="typeId">Type identifer</param>
+            <param name="indexKeys">Search keys to use specifiy null if no indices</param>
+            <param name="data">property data</param>
+            <param name="indexed"></param>
+            <param name="trans"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.AddEntity(System.Type)">
+            <summary>
+            Create a new entity of the specified type, the entity will be blank, all properties with default values
+            </summary>
+            <param name="type">Type of entity to create, this must support IPersistEntity</param>
+            <returns>A handle to the entity</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.AddEntity(System.Type,System.Int32)">
+            <summary>
+            Create a new entity of the specified type, the entity will be blank, all properties with default values
+            The entity label will be as specified, an exception will be raised if the label is already in use
+            </summary>
+            <param name="type">Type of entity to create, this must support IPersistIfcEntity</param>
+            <param name="entityLabel"></param>
+            <returns>A handle to the entity</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.TrySeekEntityLabel(System.Int32)">
+            <summary>
+            Returns true if the specified entity label is present in the table, assumes the current index has been set to by primary key (SetPrimaryIndex)
+            </summary>
+            <param name="key">The entity label to lookup</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.TrySeekEntityType(System.Int16,Xbim.Common.XbimInstanceHandle@)">
+            <summary>
+            Trys to move to the first entity of the specified type, assumes the current index has been set to order by type (SetOrderByType)
+            </summary>
+            <param name="typeId"></param>
+            <param name="ih"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.TrySeekEntityType(System.Int16,System.Int32,System.Int32)">
+            <summary>
+            Looks up an entity index to see if the secondary key exists
+            </summary>
+            <param name="typeId">The Ifc Type</param>
+            <param name="key">The secondary key</param>
+            <param name="currentLabel">The indexed entity label</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.TrySeekEntityType(System.Int16,Xbim.Common.XbimInstanceHandle@,System.Int32)">
+            <summary>
+            Trys to move to the first entity of the specified type, assumes the current index has been set to order by type (SetOrderByType)
+            Secondary keys are specific to the type and defined as IfcAttributes in the class declaration
+            </summary>
+            <param name="typeId">the type of entity to look up</param>
+            <param name="ih"></param>
+            <param name="lookupKey">Secondary key on the search</param>
+            <returns>Returns an instance handle to the first or an empty handle if not found</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.GetInstanceHandle">
+            <summary>
+            returns the instance handle for the object at the current cursor position. Assumes the index has been set to the correct position
+            and the current index is SetOrderByType
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.GetProperties">
+            <summary>
+            Gets the property values of the entity from the current record
+            </summary>
+            <returns>byte array of the property data in binary ifc format</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.RetrieveCount">
+            <summary>
+            Retrieve the count of entity items in the database from the globals table.
+            </summary>
+            <returns>The number of items in the database.</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.UpdateCount(System.Int32)">
+            <summary>
+            Update the count of entity in the globals table. This is done with EscrowUpdate
+            so that there won't be any write conflicts.
+            </summary>
+            <param name="delta">The delta to apply to the count.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.GetIfcType">
+            <summary>
+            Returns the id of the current ifc type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.GetLabel">
+            <summary>
+            Returns the current enity label from the curos of the main entity table
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.TryMoveNextEntityType(Xbim.Common.XbimInstanceHandle@)">
+            <summary>
+            For use only on the index table, accesses data from the index only
+            </summary>
+            <param name="ih"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.TryMoveFirstLabel(System.Int32@)">
+            <summary>
+            Iterates over the main entity table, access data from the index only
+            </summary>
+            <param name="label"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentEntityCursor.TryMoveNextLabel(System.Int32@)">
+            <summary>
+            Iterates over the main entity table, access data from the index only
+            </summary>
+            <param name="label"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentGeometryInitialiser.UpdateReferenceCounts">
+            <summary>
+            Updates the reference counts for each grometry on completion
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentGeometryStoreReader.ShapeInstancesOfContext(System.Int32)">
+            <summary>
+            Retrieves all shape instances for the given context
+            </summary>
+            <param name="contextId"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentGeometryStoreReader.ShapeInstances">
+            <summary>
+            Retrieves all shape instances
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Xbim.IO.Esent.EsentLazyDBTransaction">
+            <summary>
+            Used for wrapping a Database Lazy Transaction, if commit is not called the Dispose function rolls back the transaction
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentLazyDBTransaction._sesid">
+            <summary>
+            The session that has the transaction.
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentLazyDBTransaction._inTransaction">
+            <summary>
+            True if we are in a transaction.
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentLazyDBTransaction.#ctor(Microsoft.Isam.Esent.Interop.JET_SESID)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.IO.Esent.EsentLazyDBTransaction"/> struct.
+            </summary>
+            <param name="sesid">
+            The sesid.
+            </param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentLazyDBTransaction.Commit">
+            <summary>
+            Commit the transaction.
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentLazyDBTransaction.RollBack">
+            <summary>
+            Commit the transaction.
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentLazyDBTransaction.Dispose">
+            <summary>
+            Rollback the transaction if not already committed.
+            </summary>
+        </member>
+        <member name="T:Xbim.IO.Esent.EsentModel">
+            <summary>
+            IModel implementation for Esent DB based model support
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.UserDefinedId">
+            <summary>
+            An identifier that an application can use to identify this model uniquely
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.ModelFactors">
+            <summary>
+            Model wide factors, precision etc.
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.#ctor">
+            <summary>
+            Only inherited models can call parameter-less constructor and it is their responsibility to 
+            call Init() as the very first thing.
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.CodePageOverride">
+            <summary>
+            Some applications do not comply with the standard and used the Windows code page for text. This property gives the possibility to override the character encoding when reading ifc.
+            default value = -1 - by standard http://www.buildingsmart-tech.org/implementation/get-started/string-encoding/string-encoding-decoding-summary
+            </summary>
+            <example>
+            model.CodePageOverride = Encoding.Default.WindowsCodePage;
+            </example>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.Instances">
+            <summary>
+            Returns a collection of all instances only in the model 
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.FederatedInstances">
+            <summary>
+            Returns a collection of all instances in the model and all federated instances 
+            </summary>
+        </member>
+        <member name="E:Xbim.IO.Esent.EsentModel.EntityNew">
+            <summary>
+            This event is fired every time new entity is created.
+            </summary>
+        </member>
+        <member name="E:Xbim.IO.Esent.EsentModel.EntityModified">
+            <summary>
+            This event is fired every time any entity is modified. If your model is not
+            transactional it might not be called at all as the central point for all
+            modifications is a transaction.
+            </summary>
+        </member>
+        <member name="E:Xbim.IO.Esent.EsentModel.EntityDeleted">
+            <summary>
+            This event is fired every time when entity gets deleted from model.
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.GetGeometryTable">
+            <summary>
+            Starts a transaction to allow bulk updates on the geometry table, FreeGeometry Table should be called when no longer required
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.FreeTable(Xbim.IO.Esent.XbimGeometryCursor)">
+            <summary>
+            Returns the table to the cache for reuse
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.FreeTable(Xbim.IO.Esent.EsentEntityCursor)">
+            <summary>
+            Returns the table to the cache for reuse
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.FreeTable(Xbim.IO.Esent.EsentShapeGeometryCursor)">
+            <summary>
+            Returns the table to the cache for reuse
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.FreeTable(Xbim.IO.Esent.EsentShapeInstanceCursor)">
+            <summary>
+            Returns the table to the cache for reuse
+            </summary>
+            <param name="table"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Performs a set of actions on a collection of entities inside a single read only transaction
+            This improves database  performance for retrieving and accessing complex and deep objects
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="body"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.Delete(Xbim.Common.IPersistEntity)">
+            <summary>
+            Registers an entity for deletion
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.GetInstanceVolatile(System.Int32)">
+            <summary>
+            Returns an instance from the Model with the corresponding label but does not keep a cache of it
+            This is a dangerous call as duplicate instances of the same object could happen
+            Ony use when interating over the whole database for export etc
+            The properties of the object are also loaded to improve performance
+            If the instance is in the cache it is returned
+            </summary>
+            <param name="label"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.GeometriesCount">
+            <summary>
+            Returns the total number of Geometry objects in the model
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.CreateFrom(System.String,System.String,Xbim.Common.ReportProgressDelegate,System.Boolean,System.Boolean,System.Nullable{Xbim.IO.StorageType},System.Boolean)">
+            <summary>
+            Creates a new Model and populates with instances from the specified file, Ifc, IfcXML, and IfcZip are all supported.
+            </summary>
+            <remarks>To create a new model from an existing XBIM file, use 
+            <see cref="M:Xbim.IO.Esent.EsentModel.SaveAs(System.String,System.Nullable{Xbim.IO.StorageType},Xbim.Common.ReportProgressDelegate,System.Collections.Generic.IDictionary{System.Int32,System.Int32})"/>, 
+            or <see cref="M:Xbim.IO.Esent.EsentModel.CreateFrom(Xbim.Common.IModel,System.String,Xbim.Common.ReportProgressDelegate)"/></remarks>
+            <param name="importFrom">Name of the file containing the instances to import</param>
+            /// <param name="xbimDbName">Name of the xbim file that will be created. 
+            If null the contents are loaded into memory and are not persistent
+            </param>
+            <param name="progDelegate"></param>
+            <param name="keepOpen">Flag indicating whether to keep the model open after creation, otherwise closes after import</param>
+            <param name="cacheEntities"></param>
+            <param name="storageType">The expected Ifc Format of the file. Inferred from extension when null</param>
+            <param name="deleteOnClose">Indicates whether the xbim database file should be deleted on close of model</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.CreateTemporaryModel(Xbim.Common.IEntityFactory)">
+            <summary>
+            Creates an empty model using a temporary filename, the model will be deleted on close, unless SaveAs is called
+            It will be returned open for read write operations
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.CreateModel(Xbim.Common.IEntityFactory,System.String,Xbim.IO.XbimDBAccess)">
+            <summary>
+             Creates and opens a new Xbim Database
+            </summary>
+            <param name="factory">Entity factory to be used for deserialization</param>
+            <param name="dbFileName">Name of the Xbim file</param>
+            <param name="access"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.Close">
+            <summary>
+            Closes the current model and releases all resources and instances
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.CacheStart">
+            <summary>
+            Begins a cache of all data read from the model, improves performance where data is read many times
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.CacheClear">
+            <summary>
+            Clears all read data in the cache
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.CacheStop">
+            <summary>
+            Stops further caching of data and clears the current cache
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.Open(System.String,Xbim.IO.XbimDBAccess,Xbim.Common.ReportProgressDelegate)">
+            <summary>
+            Opens an Xbim model only, to open Ifc, IfcZip and IfcXML files use the CreateFrom method
+            </summary>
+            <param name="fileName"></param>
+            <param name="accessMode"></param>
+            <param name="progDelegate"></param>
+            <returns>True if successful</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.GetGeometryData(System.Int32,Xbim.Common.Geometry.XbimGeometryType)">
+            <summary>
+            Returns all the geometries for the geometry type
+            Typically bounding box returns a single object, triangulated mesh mes may return multiple geometry meshes
+            where an object is made of multiple materials
+            </summary>
+            <param name="productLabel"></param>
+            <param name="geomType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.GeometrySupportLevel">
+            <summary>
+            Returns the level of geometry supported in the model
+            0 = No geometry has been compiled in the model
+            1 = Triangulated Mesh only
+            2 = Polygonal  geometry meshes supporting maps
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.InsertCopy``1(``0,Xbim.Common.XbimInstanceHandleMap,Xbim.IO.Esent.XbimReadWriteTransaction,System.Boolean)">
+            <summary>
+            Inserts a deep copy of the toCopy object into this model
+            All property values are copied to the maximum depth
+            Inverse properties are not copied
+            </summary>
+            <param name="toCopy">Instance to copy</param>
+            <param name="mappings">Supply a dictionary of mappings if repeat copy insertions are to be made</param>
+            <param name="txn"></param>
+            <param name="includeInverses"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.InsertCopy``1(``0,Xbim.Common.XbimInstanceHandleMap,Xbim.Common.PropertyTranformDelegate,System.Boolean,System.Boolean)">
+            <summary>
+            Implementation of IModel variant of InsertCopy() function
+            </summary>
+            <typeparam name="T">Type of the object to be inserted. This must be a type supported by this model</typeparam>
+            <param name="toCopy">Object to copy</param>
+            <param name="mappings">Mappings make sure object is only inserted once. You should use one instance of mappings for all InsertCopy() calls between two models</param>
+            <param name="propTransform">Delegate which can be used to transform properties. You can use this to filter out certain properties or referenced objects</param>
+            <param name="includeInverses">If TRUE interse relations are also copied over. This may potentially bring over almost entire model if not controlled by propTransform delegate</param>
+            <param name="keepLabels">If TRUE entity labels of inserted objects will be the same as the labels of original objects. This should be FALSE if you are inserting objects to existing model
+            or if you are inserting objects from multiple source models into a single target model where entity labels may potentially clash.</param>
+            <returns>New created object in this model which is a deep copy of original object</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentModel.EnsureGeometryTables">
+            <summary>
+            Invoke the function before meshing to ensure database structure is available
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentModel._transactionReference">
+            <summary>
+            Weak reference allows garbage collector to collect transaction once it goes out of the scope
+            even if it is still referenced from model. This is important for the cases where the transaction
+            is both not commited and not rolled back either.
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.IsFederation">
+            <summary>
+            Returns true if the model contains reference models or the model has extension xBIMf
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.AllInstancesHandles">
+            <summary>
+            Returns an enumerable of the handles to all entities in the model
+            Note this includes entities that are in any federated models
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.EsentModel.InstanceHandles">
+            <summary>
+            Returns a list of the handles to only the entities in this model
+            Note this do NOT include entities that are in any federated models
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentReadOnlyTransaction._sesid">
+            <summary>
+            The session that has the transaction.
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentReadOnlyTransaction.#ctor(Microsoft.Isam.Esent.Interop.JET_SESID)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Xbim.IO.Esent.EsentReadOnlyTransaction"/> struct.
+            </summary>
+            <param name="sesid">
+            The sesid.
+            </param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentReadOnlyTransaction.Dispose">
+            <summary>
+            Rollback the transaction if not already committed.
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValShapeLabel">
+            <summary>
+            The unique label of this shape instance
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValIfcShapeLabel">
+            <summary>
+            The label of the IFC object that defines this shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValGeometryHash">
+            <summary>
+             Hash of the shape Geometry, based on the IFC representation, this is not unique
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValCost">
+            <summary>
+            The total cost in bytes of this shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValReferenceCount">
+            <summary>
+            The number of references to this shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValLOD">
+            <summary>
+            The level of detail or development that the shape is suited for
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValFormat">
+            <summary>
+            The format in which the shape data is represented, i.e. triangular mesh, polygon, opencascade
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValBoundingBox">
+            <summary>
+            The bounding box of this instance, requires tranformation to place in world coordinates
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValShapeData">
+            <summary>
+            The gemetry data defining the shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.GeometryTableName">
+            <summary>
+            shape geometry table name
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.geometryTablePrimaryIndex">
+            <summary>
+            Index on the unique label
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.geometryTableHashIndex">
+            <summary>
+            index on the geeometric hash
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.geometryTableReferenceIndex">
+            <summary>
+            Index on the reference count
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameShapeLabel">
+            <summary>
+            The unique label of this shape instance
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameIfcShapeLabel">
+            <summary>
+            The label of the IFC object that defines this shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameShapeData">
+            <summary>
+            The gemetry data defining the shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameGeometryHash">
+            <summary>
+             Hash of the shape Geometry, based on the IFC representation, this is not unique
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameCost">
+            <summary>
+            The cost in bytes of this shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameReferenceCount">
+            <summary>
+            The number of references to this shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameLOD">
+            <summary>
+            The level of detail or development that the shape is suited for
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameBoundingBox">
+            <summary>
+            The bounding box of this instance, requires tranformation to place in world coordinates
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor.colNameFormat">
+            <summary>
+            The format in which the shape data is represented, i.e. triangular mesh, polygon, opencascade
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeGeometryCursor._colValues">
+            <summary>
+            Holds all the table row values
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.RetrieveCount">
+            <summary>
+            Retrieve the count of geometry items in the database from the globals table.
+            </summary>
+            <returns>The number of items in the database.</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.UpdateCount(System.Int32)">
+            <summary>
+            Update the count of geometry entities in the globals table. This is done with EscrowUpdate
+            so that there won't be any write conflicts.
+            </summary>
+            <param name="delta">The delta to apply to the count.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.TryMoveFirstShapeGeometry(Xbim.Common.Geometry.IXbimShapeGeometryData@)">
+            <summary>
+            Seeks and returns the first shape geometry
+            </summary>
+            <param name="sg"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.TryMoveNextShapeGeometry(Xbim.Common.Geometry.IXbimShapeGeometryData@)">
+            <summary>
+            Returns the next Shape geometry after a move or a seek call
+            </summary>
+            <param name="sg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.TryGetShapeGeometry(System.Int32,Xbim.Common.Geometry.IXbimShapeGeometryData@)">
+            <summary>
+            Returns the shape geometry for the specified label if it exists
+            </summary>
+            <param name="shapeGeometryLabel"></param>
+            <param name="sg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.GetReferenceCount(System.Int32)">
+            <summary>
+            fast retrieval of the reference counf for this geometry
+            </summary>
+            <param name="shapeGeometryLabel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.TryMoveFirstReferenceCounter">
+            <summary>
+            Moves to the first Shape Geometry and sets the index to the reference counter index
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.TryMoveNextReferenceCounter">
+            <summary> Moves to the next shape geometry assumes TryMoveFirstReferenceCounter has been called
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.GetReferenceCount">
+            <summary>
+            returns the reference count for the current record, assume that TryMoveFirstReferenceCounter has been called
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.GetCost">
+            <summary>
+            returns the cost for the current record, assume that TryMoveFirstReferenceCounter has been called
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeGeometryCursor.GetShapeGeometryLabel">
+            <summary>
+            returns the geometry label for the current record, assume that the current index has been set to primary
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Xbim.IO.Esent.EsentShapeInstanceCursor">
+            <summary>
+            Provides a table of instantiations of shapes at specific tranformations
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValInstanceLabel">
+            <summary>
+            The unique label of this shape instanceData
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValIfcTypeId">
+            <summary>
+            The IFC type of the product this instanceData represents
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValIfcProductLabel">
+            <summary>
+            The label of the IFC Product object that  this instanceData fully or partly defines
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValStyleLabel">
+            <summary>
+            The style that this shape is presented in when it overrides the shape style
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValShapeLabel">
+            <summary>
+            The id of the shape  that this is an instanceData of
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValRepresentationContext">
+            <summary>
+            The label of the IFC representation context of this instanceData
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValRepType">
+            <summary>
+            What type of representation, typically this is how the shape has been generated, i.e. openings have been applied or not applied
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValTransformation">
+            <summary>
+            The transformation to be applied to shape to place it in the world coordinates
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValBoundingBox">
+            <summary>
+            The bounding box of this instanceData, requires tranformation to place in world coordinates
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.InstanceTableName">
+            <summary>
+            shape geometry table name
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.instanceTablePrimaryIndex">
+            <summary>
+            Index on the context, style, ifc type then instanceData label
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.productTypeIndex">
+            <summary>
+            Index on theifc type id
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.productIndex">
+            <summary>
+            index on the  product label
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.geometryShapeIndex">
+            <summary>
+            Index on the shape of the object
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameInstanceLabel">
+            <summary>
+            The unique label of this shape instanceData
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameIfcTypeId">
+            <summary>
+            The type ID of the IFC Product object that defines this shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameIfcProductLabel">
+            <summary>
+            The label of the IFC Product object that defines this shape
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameStyleLabel">
+            <summary>
+            The style that this shape is presented in when it overrides the shape style
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameShapeLabel">
+            <summary>
+            The id of the shape  that this is an instanceData of
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameRepresentationContext">
+            <summary>
+            The label of the IFC representation context of this instanceData
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameRepType">
+            <summary>
+            What type of representation, typically this is how the shape has been generated, i.e. openings have been applied or not applied
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameTransformation">
+            <summary>
+            The transformation to be applied to shape to place it in the world coordinates
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor.colNameBoundingBox">
+            <summary>
+            The bounding box of this instanceData, requires tranformation to place in world coordinates
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.EsentShapeInstanceCursor._colValues">
+            <summary>
+            Holds all the table row values
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.RetrieveCount">
+            <summary>
+            Retrieve the count of geometry items in the database from the globals table.
+            </summary>
+            <returns>The number of items in the database.</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.UpdateCount(System.Int32)">
+            <summary>
+            Update the count of geometry entities in the globals table. This is done with EscrowUpdate
+            so that there won't be any write conflicts.
+            </summary>
+            <param name="delta">The delta to apply to the count.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.AddInstance(System.Int32,System.Int32,System.Int32,System.Int16,System.Int32,Xbim.Common.Geometry.XbimGeometryRepresentationType,System.Byte[])">
+            <summary>
+            Adds a shape instanceData to the database table
+            </summary>
+            <param name="ctxtId"></param>
+            <param name="shapeLabel"></param>
+            <param name="styleLabel"></param>
+            <param name="typeId"></param>
+            <param name="productLabel"></param>
+            <param name="repType"></param>
+            <param name="transform"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TrySeekShapeInstance(System.Int32,Xbim.Common.Geometry.IXbimShapeInstanceData@)">
+            <summary>
+            xbimShapeInstanceData will contain the first shape instanceData in the specified context
+            </summary>
+            <param name="context"></param>
+            <param name="si"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TryMoveNextShapeInstance(Xbim.Common.Geometry.IXbimShapeInstanceData@)">
+            <summary>
+            Moves the cursor to the next shape instanceData that meets the criteria of the previous TrySeek call
+            </summary>
+            <param name="si"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TrySeekShapeInstanceOfProduct(System.Int32,Xbim.Common.Geometry.IXbimShapeInstanceData@)">
+            <summary>
+            xbimShapeInstanceData will contain the first shape instanceData of the specified product label
+            </summary>
+            <param name="product"></param>
+            <param name="si"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TrySeekShapeInstanceOfProduct(System.Int32)">
+            <summary>
+            Return whether the product has any instances
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TrySeekShapeInstanceOfGeometry(System.Int32,Xbim.Common.Geometry.IXbimShapeInstanceData@)">
+            <summary>
+            xbimShapeInstanceData will contain the first shape instanceData of the specified product label
+            </summary>
+            <param name="shapeGeometryLabel"></param>
+            <param name="si"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TryMoveFirstSurfaceStyle(System.Int32,System.Int32@,System.Int16@)">
+            <summary>
+            Returns the first surface style in the specified context, -1 if no styles exists
+            </summary>
+            <param name="context"></param>
+            <param name="surfaceStyle"></param>
+            <param name="productType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TryMoveNextSurfaceStyle(System.Int32@,System.Int16@)">
+            <summary>
+            Returns the next surface style in the specified context, assumes TryMoveFirstSurfaceStyle was the last call on this cursor
+            </summary>
+            <param name="surfaceStyle"></param>
+            <param name="productType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.SkipSurfaceStyes(System.Int32)">
+            <summary>
+            Skips all instances of skipstlye and returns in the next SurfaceStyle 
+            </summary>
+            <param name="skipStyle"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TryMoveFirstProductType(System.Int32,System.Int16@)">
+            <summary>
+            Returns the first product type in the specified context
+            </summary>
+            <param name="context"></param>
+            <param name="productType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.EsentShapeInstanceCursor.TryMoveNextProductType(System.Int16@)">
+            <summary>
+            Returns the next product type in the specified context, assumes TryMoveFirstSurfaceStyle was the last call on this cursor
+            </summary>
+            <param name="productType"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Xbim.IO.Esent.PersistedEntityInstanceCache.OpenInstances">
+            <summary>
+            Holds a collection of all currently opened instances in this process
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.PersistedEntityInstanceCache._lockObject">
+            <summary>
+            Holds the session and transaction state
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.CreateDatabase(System.String)">
+            <summary>
+            Creates an empty xbim file, overwrites any existing file of the same name
+            throw a create failed exception if unsuccessful
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.GetEntityTable">
+            <summary>
+            Returns a cached or new entity table, assumes the database filename has been specified
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.GetGeometryTable">
+            <summary>
+            Returns a cached or new Geometry Table, assumes the database filename has been specified
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.FreeTable(Xbim.IO.Esent.EsentEntityCursor)">
+            <summary>
+            Free a table. This will cache the table if the cache isn't full
+            and dispose of it otherwise.
+            </summary>
+            <param name="table">The cursor to free.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.FreeTable(Xbim.IO.Esent.XbimGeometryCursor)">
+            <summary>
+            Free a table. This will cache the table if the cache isn't full
+            and dispose of it otherwise.
+            </summary>
+            <param name="table">The cursor to free.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.FreeTable(Xbim.IO.Esent.EsentShapeGeometryCursor)">
+            <summary>
+            Free a table. This will cache the table if the cache isn't full
+            and dispose of it otherwise.
+            </summary>
+            <param name="table">The cursor to free.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.FreeTable(Xbim.IO.Esent.EsentShapeInstanceCursor)">
+            <summary>
+            Free a table. This will cache the table if the cache isn't full
+            and dispose of it otherwise.
+            </summary>
+            <param name="table">The cursor to free.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.Open(System.String,Xbim.IO.XbimDBAccess)">
+            <summary>
+             Opens an xbim model server file, exception is thrown if errors are encountered
+            </summary>
+            <param name="filename"></param>
+            <param name="accessMode"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.Close">
+            <summary>
+            Clears all contents from the cache and closes any connections
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Performs a set of actions on a collection of entities inside a single read only transaction
+            This improves database  performance for retrieving and accessing complex and deep objects
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="body"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.GetXbimTempDirectory">
+            <summary>
+            Sets up the Esent directories, can only be call before the Init method of the instance
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.IsValidDirectory(System.String@)">
+            <summary>
+            Checks the directory is writeable and modifies to be the full path
+            </summary>
+            <param name="tempDirectory"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.ImportStep(System.String,System.String,Xbim.Common.ReportProgressDelegate,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Imports the contents of the ifc file into the named database, the resulting database is closed after success, use LoadStep21 to access
+            </summary>
+            <param name="toImportIfcFilename"></param>
+            <param name="progressHandler"></param>
+            <param name="xbimDbName"></param>
+            <param name="keepOpen"></param>
+            <param name="cacheEntities"></param>
+            <param name="codePageOverride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.ImportZip(System.String,System.IO.Stream,Xbim.Common.ReportProgressDelegate,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Imports an Ifc Zip file
+            </summary>
+            <param name="xbimDbName"></param>
+            <param name="fileStream"></param>
+            <param name="progressHandler"></param>
+            <param name="keepOpen"></param>
+            <param name="cacheEntities"></param>
+            <param name="codePageOverride"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.ImportIfcXml(System.String,System.String,Xbim.Common.ReportProgressDelegate,System.Boolean,System.Boolean)">
+            <summary>
+              Imports an Xml file memory model into the model server, only call when the database instances table is empty
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.CountOf``1">
+            <summary>
+            returns the number of instances of the specified type and its sub types
+            </summary>
+            <typeparam name="TIfcType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.CountOf(System.Type)">
+            <summary>
+            returns the number of instances of the specified type and its sub types
+            </summary>
+            <param name="theType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.IO.Esent.PersistedEntityInstanceCache.Count">
+            <summary>
+            returns the number of instances in the model
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.IO.Esent.PersistedEntityInstanceCache.HighestLabel">
+            <summary>
+            returns the value of the highest current entity label
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.CreateNew(System.Type)">
+            <summary>
+            Creates a new instance
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.CreateNew(System.Type,System.Int32)">
+            <summary>
+            Creates a new instance, this is not a reversable action, and the instance is not cached
+            It is for performance in import and export routines and should not be used in normal code
+            </summary>
+            <param name="type"></param>
+            <param name="label"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.InstancesOfTypeCount(System.Type)">
+            <summary>
+            Deprecated. Use CountOf, returns the number of instances of the specified type
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.IO.Esent.PersistedEntityInstanceCache.InstanceHandles">
+            <summary>
+            Returns an enumeration of handles to all instances in the database and in the cache
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.InstanceHandlesOfType``1">
+            <summary>
+            Returns an enumeration of handles to all instances in the database or the cache of specified type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.GetInstance(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Returns an instance of the entity with the specified label,
+            if the instance has already been loaded it is returned from the cache
+            if it has not been loaded a blank instance is loaded, i.e. will not have been activated
+            </summary>
+            <param name="label"></param>
+            <param name="loadProperties"></param>
+            <param name="unCached"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.GetOrCreateInstanceFromCache(System.Int32,System.Type,System.Byte[])">
+            <summary>
+            Looks for this instance in the cache and returns it, if not found it creates a new instance and adds it to the cache
+            </summary>
+            <param name="label">Entity label to create</param>
+            <param name="type">If not null creates an instance of this type, else creates an unknown Ifc Type</param>
+            <param name="properties">if not null populates all properties of the instance</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.GetInstanceFromStore(System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Loads a blank instance from the database, do not call this before checking that the instance is in the instances cache
+            If the entity has already been cached it will throw an exception
+            This is not a undoable/reversable operation
+            </summary>
+            <param name="entityLabel">Must be a positive value of the label</param>
+            <param name="loadProperties">if true the properties of the object are loaded  at the same time</param>
+            <param name="unCached">if true the object is not cached, this is dangerous and can lead to object duplicates</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.OfType``1(System.Boolean,System.Nullable{System.Int32},Xbim.Common.Metadata.ExpressType)">
+            <summary>
+            Enumerates of all instances of the specified type. The values are cached, if activate is true all the properties of the entity are loaded
+            </summary>
+            <typeparam name="TOType"></typeparam>
+            <param name="activate">if true loads the properties of the entity</param>
+            <param name="indexKey">if the entity has a key object, optimises to search for this handle</param>
+            <param name="overrideType">if specified this parameter overrides the expressType used internally (but not TIfcType) for filtering purposes</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.GetEntityBinaryData(Xbim.Common.IPersistEntity)">
+            <summary>
+            Gets the entities propertyData on binary stream
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.GetGeometryData(Xbim.Common.Geometry.XbimGeometryType)">
+            <summary>
+            Iterates over all the shape geoemtry
+            This is a thread safe operation and can be accessed in background threads
+            </summary>
+            <param name="ofType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.InsertNew(System.Type,System.Int32)">
+            <summary>
+            This function can only be called once the model is in a transaction
+            </summary>
+            <param name="type"></param>
+            <param name="entityLabel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.InsertNew(System.Type)">
+            <summary>
+            This function can only be called once the model is in a transaction
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.AddModified(Xbim.Common.IPersistEntity)">
+            <summary>
+            Adds an entity to the modified cache, if the entity is not already being edited
+            Throws an exception if an attempt is made to edit a duplicate reference to the entity
+            </summary>
+            <param name="entity"></param>
+        </member>
+        <member name="P:Xbim.IO.Esent.PersistedEntityInstanceCache.InstanceLabels">
+            <summary>
+            Returns an enumeration of all the instance labels in the model
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.BeginCaching">
+            <summary>
+            Clears any cached objects and starts a new caching session
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.EndCaching">
+            <summary>
+            Clears any cached objects and terminates further caching
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.Write(Xbim.IO.Esent.EsentEntityCursor)">
+            <summary>
+            Writes the content of the modified cache to the table, assumes a transaction is in scope, modified and create new caches are cleared
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.CacheStart">
+            <summary>
+            Starts a read cache
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.CacheClear">
+            <summary>
+            Clears a read cache, do not call when a transaction is active
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.CacheStop">
+            <summary>
+            Clears a read cache, and ends further caching, do not call when a transaction is active
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.PersistedEntityInstanceCache.DeleteGeometry">
+            <summary>
+            Deletes the geometric content of the model.
+            </summary>
+            <returns>True if successful.</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryCursor.AddGeometry(System.Int32,Xbim.Common.Geometry.XbimGeometryType,System.Int16,System.Byte[],System.Byte[],System.Int16,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            Adds a geometry record and returns the hash of the geometry data
+            </summary>
+            <param name="prodLabel"></param>
+            <param name="type"></param>
+            <param name="expressType"></param>
+            <param name="transform"></param>
+            <param name="shapeData"></param>
+            <param name="subPart"></param>
+            <param name="styleLabel"></param>
+            <param name="geometryHash"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryCursor.RetrieveCount">
+            <summary>
+            Retrieve the count of geometry items in the database from the globals table.
+            </summary>
+            <returns>The number of items in the database.</returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryCursor.UpdateCount(System.Int32)">
+            <summary>
+            Update the count of geometry entities in the globals table. This is done with EscrowUpdate
+            so that there won't be any write conflicts.
+            </summary>
+            <param name="delta">The delta to apply to the count.</param>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryCursor.UpdateReferenceCount(System.Int32,System.Int32)">
+            <summary>
+            Updates the number of references to a geomentry, a value of 1 indicates 1 reference in addition to one original use.
+            A value of 0 means there is only the single use and no other references to this geometry
+            </summary>
+            <param name="geomLabel"></param>
+            <param name="refCount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryCursor.GeometryData(Xbim.Common.Geometry.XbimGeometryType)">
+            <summary>
+            Returns the records for all geometries of the specified type
+            </summary>
+            <param name="xbimGeometryType"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimGeometryHandle.GeometryLabel">
+            <summary>
+            The unique ID of the geometry
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimGeometryHandle.SurfaceStyleLabel">
+            <summary>
+            The label of the Ifc Entity that holds the surface style render
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimGeometryHandle.ProductLabel">
+            <summary>
+            The label of the Ifc Entity that the geomtry represents
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimGeometryHandle.ExpressTypeId">
+            <summary>
+            The id of the Ifc Type of the Product represented
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimGeometryHandle.GeometryType">
+            <summary>
+            The type of geometric representation
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimGeometryHandle.GeometryHashCode">
+            <summary>
+            The hash code of the geometry vertex data
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryHandle.#ctor(System.Int32,Xbim.Common.Geometry.XbimGeometryType,System.Int32,System.Int16,System.Int32,System.Nullable{System.Int32})">
+            <summary>
+            A handle to a geometry object
+            </summary>
+            <param name="geometryLabel">The unique ID of the geometry</param>
+            <param name="geometryType">The type of geometric representation</param>
+            <param name="productLabel">The label of the Ifc Entity that the geomtry represents</param>
+            <param name="expressTypeId">The id of the Ifc Type of the Product represented</param>
+            <param name="surfaceStyleLabel">The label of the Ifc Entity that holds the surface style render</param>
+            <param name="geometryHashCode"></param>
+        </member>
+        <member name="P:Xbim.IO.Esent.XbimGeometryHandle.SurfaceStyle">
+            <summary>
+            Returns the surface style for rendering this object
+            </summary>
+        </member>
+        <member name="T:Xbim.IO.Esent.XbimGeometryHandleCollection">
+            <summary>
+            An ordered Collection of geometry handles
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryHandleCollection.GetSurfaceStyles">
+            <summary>
+            Returns a list of unique surface style for this collection
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryHandleCollection.Exclude(System.Int32[])">
+            <summary>
+            Returns all handles that are not of type to exclude
+            </summary>
+            <param name="exclude"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryHandleCollection.Include(System.Int32[])">
+            <summary>
+            returns all handles that of of type to include
+            </summary>
+            <param name="include"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryHandleCollection.GetGeometryHandles(Xbim.IO.Esent.XbimSurfaceStyle)">
+            <summary>
+            Returns all the Geometry Handles for a specified SurfaceStyle
+            Obtain the SurfaceStyle by calling the GetSurfaceStyles function
+            </summary>
+            <param name="forStyle"></param>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimGeometryHandleCollection.ToSurfaceStyleMap(System.Reflection.Module)">
+            <summary>
+            Returns a map of all the unique surface style and the geometry objects that the style renders
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Xbim.IO.Esent.XbimInstanceCollection">
+            <summary>
+            A class providing access to a collection of in,stances in a model
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.XbimInstanceCollection.Count">
+            <summary>
+            Returns the total number of Ifc Instances in this model
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.CountOf``1">
+            <summary>
+            Returns the count of the number of instances of the specified type
+            </summary>
+            <typeparam name="TIfcType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.OfType``1(System.Boolean)">
+            <summary>
+            Returns all instances in the model of IfcType, IfcType may be an abstract Type
+            </summary>
+            <param name="activate">if true each instance is fullly populated from the database, if false population is deferred until the entity is activated</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.Where``1(System.Func{``0,System.Boolean})">
+            <summary>
+              Filters the Ifc Instances based on their Type and the predicate
+            </summary>
+            <typeparam name = "TIfcType">Ifc Type to filter</typeparam>
+            <param name = "expression">function to execute</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.Handles">
+            <summary>
+            Returns an enumerabale of all the instance handles in the model
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.Handles``1">
+            <summary>
+            Returns an enumerable of all handles of the specified type in the model
+            </summary>
+            <typeparam name="T">The type of entity required</typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.IO.Esent.XbimInstanceCollection.Item(System.Int32)">
+            <summary>
+            Returns an instance from the Model with the corresponding label
+            </summary>
+            <param name="label">entity label to retrieve</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.GetFromGeometryLabel(System.Int32)">
+            <summary>
+            Returns the Ifc entity for a given Geometry Label
+            </summary>
+            <param name="geometryLabel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.New``1">
+            <summary>
+              Creates a new Ifc Persistent Instance, this is an undoable operation
+            </summary>
+            <typeparam name = "TIfcType"> The Ifc Type, this cannot be an abstract class. An exception will be thrown if the type is not a valid Ifc Type  </typeparam>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.New``1(System.Action{``0})">
+            <summary>
+              Creates and Instance of TIfcType and initializes the properties in accordance with the lambda expression
+              i.e. Person person = CreateInstance&gt;Person&lt;(p =&lt; { p.FamilyName = "Undefined"; p.GivenName = "Joe"; });
+            </summary>
+            <typeparam name = "TIfcType"></typeparam>
+            <param name = "initPropertiesFunc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.New(System.Type)">
+            <summary>
+            Creates and returns a new instance of Type t, sets the label to the specificed value.
+            This is a reversabel operation
+            
+            </summary>
+            <param name="t"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.Contains(System.Int32)">
+            <summary>
+            Returns true if the instance label is in the current model, 
+            Use with care, does not check that the instance is in the current model, only the label exists
+            </summary>
+            <param name="entityLabel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimInstanceCollection.Contains(Xbim.Common.IPersistEntity)">
+            <summary>
+            Returns true if the instance is in the current model
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Xbim.IO.Esent.XbimParserState.InList">
+            <summary>
+            Returns true if the parser is working through a list of items
+            </summary>
+        </member>
+        <member name="T:Xbim.IO.Esent.XbimReadTransaction">
+            <summary>
+            A transaction allowing read only operations on a model
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimReadTransaction._disposed">
+            <summary>
+            to detect redundant calls
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimReadTransaction.InTransaction">
+            <summary>
+            True if we are in a transaction.
+            </summary>
+        </member>
+        <member name="T:Xbim.IO.Esent.XbimReadWriteTransaction">
+            <summary>
+            A transaction allowing read and write operations on a model
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.XbimReadWriteTransaction.TransactionBatchSize">
+            <summary>
+            The maximum number of pulse actions before a transaction is automatically commited, default is 100 
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimReadWriteTransaction.Pulse">
+            <summary>
+            Increments the pulse count for the transaction, if the pulse count exceed the Transaction batch size the transaction is committed and restarted
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Xbim.IO.Esent.XbimSurfaceStyle">
+            <summary>
+            Represents a material used to render a surface of a geometry
+            </summary>
+        </member>
+        <member name="F:Xbim.IO.Esent.XbimSurfaceStyle.TagRenderMaterial">
+            <summary>
+            Holds the material used by the graphics engine to render the surface style
+            Set to a value to suite  specific needs of the graphics environment being used
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.XbimSurfaceStyleMap.Styles">
+            <summary>
+            Returns all the  unique style in the map
+            </summary>
+        </member>
+        <member name="P:Xbim.IO.Esent.XbimSurfaceStyleMap.GeometryHandles">
+            <summary>
+            Returns an enumerable of all handles in the map
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.Esent.XbimSurfaceStyleMap.GeometryHandlesForStyle(Xbim.IO.Esent.XbimSurfaceStyle)">
+            <summary>
+            Returns all the geometry handles for a specified style, use the Styles property for a valid style
+            </summary>
+        </member>
+        <member name="M:Xbim.IO.PersistEntityExtensions.WriteEntityToSteam(System.IO.MemoryStream,System.IO.BinaryWriter,Xbim.Common.IPersistEntity,Xbim.Common.Metadata.ExpressMetaData)">
+            <summary>
+              Writes the in memory data of the entity to a stream
+            </summary>
+            <param name = "entityStream"></param>
+            <param name = "entityWriter"></param>
+            <param name = "item"></param>
+            <param name="metadata"></param>
+        </member>
+        <member name="M:Xbim.IO.PersistEntityExtensions.ReadEntityProperties(Xbim.Common.IPersistEntity,Xbim.IO.Esent.PersistedEntityInstanceCache,System.IO.BinaryReader,System.Boolean,System.Boolean)">
+            <summary>
+            Populates an entites properties from the binary stream
+            </summary>
+            <param name="entity"></param>
+            <param name="cache"></param>
+            <param name="br"></param>
+            <param name="unCached">If true instances inside the properties are not added to the cache</param>
+            <param name="fromCache"> If true the instance is read from the cache if not present it is created, used during parsing</param>
+        </member>
+        <member name="T:Xbim.Ifc.HeuristicModelProvider">
+            <summary>
+            The <see cref="T:Xbim.Ifc.HeuristicModelProvider"/> encapsulates the underlying <see cref="T:Xbim.Common.IModel"/> implementations we use 
+            to provide different persistance performance characteristics, depending on the use-case and the consumer's inputs.
+            </summary>
+            <remarks>This store permits a <see cref="T:Xbim.IO.Memory.MemoryModel"/> to be used where it's appropriate, while switching to an
+            <see cref="T:Xbim.IO.Esent.EsentModel"/> when persistance is required, or a source model is above a size threshold.
+            The store also permits a <see cref="T:Xbim.IO.Memory.MemoryModel"/> to persisted.
+            </remarks>
+        </member>
+        <member name="F:Xbim.Ifc.HeuristicModelProvider.DefaultIfcDatabaseSizeThreshHoldMb">
+            <summary>
+            The default largest size in MB for an IFC file to be loaded into memory, above this size the store will choose to use 
+            the database storage media to minimise the memory footprint. This size can be set in the config file or in the open 
+            statement of this store 
+            </summary>
+        </member>
+        <member name="P:Xbim.Ifc.HeuristicModelProvider.Capabilities">
+            <summary>
+            Describes the capabilities of the provider
+            </summary>
+        </member>
+        <member name="M:Xbim.Ifc.HeuristicModelProvider.Close(Xbim.Common.IModel)">
+            <summary>
+            Closes a Model store, releasing any resources
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:Xbim.Ifc.HeuristicModelProvider.Create(Xbim.Common.Step21.XbimSchemaVersion,System.String)">
+            <summary>
+            Creates a new Persistent model store
+            </summary>
+            <param name="ifcVersion"></param>
+            <param name="dbPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc.HeuristicModelProvider.Create(Xbim.Common.Step21.XbimSchemaVersion,Xbim.IO.XbimStoreType)">
+            <summary>
+            Creates a new model store, with the consumer choosing the implementation
+            </summary>
+            <param name="ifcVersion"></param>
+            <param name="storageType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc.HeuristicModelProvider.GetLocation(Xbim.Common.IModel)">
+            <summary>
+            Gets the location of a model, where it is a persisted model store.
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc.HeuristicModelProvider.GetXbimSchemaVersion(System.String)">
+            <summary>
+            Gets the IFC Schema version for a model
+            </summary>
+            <param name="modelPath">Path to a model in any supported format (IFC, IfcXml, IfcZip, or XBIM)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc.HeuristicModelProvider.Open(System.IO.Stream,Xbim.IO.StorageType,Xbim.Common.Step21.XbimSchemaVersion,Xbim.IO.XbimModelType,Xbim.IO.XbimDBAccess,Xbim.Common.ReportProgressDelegate,System.Int32)">
+            <summary>
+            Opens a model from the provided stream
+            </summary>
+            <param name="stream"></param>
+            <param name="dataType"></param>
+            <param name="schema"></param>
+            <param name="modelType"></param>
+            <param name="accessMode"></param>
+            <param name="progDelegate"></param>
+            <param name="codePageOverride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc.HeuristicModelProvider.Open(System.String,Xbim.Common.Step21.XbimSchemaVersion,System.Nullable{System.Double},Xbim.Common.ReportProgressDelegate,Xbim.IO.XbimDBAccess,System.Int32)">
+            <summary>
+            Opens a model from the provided path, inferring model implementation based on format and model size
+            </summary>
+            <param name="path">Path to the model file, in any support IFC or XBIM format</param>
+            <param name="schemaVersion"></param>
+            <param name="ifcDatabaseSizeThreshHold"></param>
+            <param name="progDelegate"></param>
+            <param name="accessMode"></param>
+            <param name="codePageOverride"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Xbim.Ifc.HeuristicModelProvider.Persist(Xbim.Common.IModel,System.String,Xbim.Common.ReportProgressDelegate)">
+            <summary>
+            Persists the model to a permanent store
+            </summary>
+            <param name="model"></param>
+            <param name="fileName"></param>
+            <param name="progDelegate"></param>
+        </member>
+        <member name="M:Xbim.Ifc.ModelProviderExtensions.UseHeuristicModelProvider(Xbim.IO.IModelProviderFactory)">
+            <summary>
+            Configures the <see cref="T:Xbim.IO.IModelProviderFactory"/> to use the <see cref="T:Xbim.Ifc.HeuristicModelProvider"/>
+            </summary>
+            <remarks>This provider gives the best performance and functionality tradeoff by using both the 
+            <see cref="T:Xbim.IO.Esent.EsentModel"/> and <see cref="T:Xbim.IO.Memory.MemoryModel"/></remarks>
+            <param name="providerFactory">The <see cref="T:Xbim.IO.IModelProviderFactory"/> to configure</param>
+            <returns>The <see cref="T:Xbim.IO.IModelProviderFactory"/></returns>
+        </member>
+        <member name="M:Xbim.Ifc.ModelProviderExtensions.UseEsentModelProvider(Xbim.IO.IModelProviderFactory)">
+            <summary>
+            Configures the <see cref="T:Xbim.IO.IModelProviderFactory"/> to use the <see cref="T:Xbim.IO.Esent.EsentModelProvider"/>
+            </summary>
+            <param name="providerFactory">The <see cref="T:Xbim.IO.IModelProviderFactory"/> to configure</param>
+            <returns>The <see cref="T:Xbim.IO.IModelProviderFactory"/></returns>
+        </member>
+    </members>
+</doc>

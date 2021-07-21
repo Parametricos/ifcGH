@@ -1,0 +1,64 @@
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\T-Rex.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\T-Rex.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\T-RexEngine.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc4.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Common.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.IO.MemoryModel.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc2x3.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Microsoft.Extensions.Logging.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\T-RexEngine.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc.xml
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc4.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc4.xml
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Common.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Common.xml
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.IO.MemoryModel.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.IO.MemoryModel.xml
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc2x3.pdb
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Xbim.Ifc2x3.xml
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Microsoft.Extensions.Logging.xml
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\obj\Debug\T_Rex.csprojAssemblyReference.cache
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\obj\Debug\T_Rex.Properties.Resources.resources
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\obj\Debug\T_Rex.csproj.GenerateResource.cache
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\obj\Debug\T_Rex.csproj.CoreCompileInputs.cache
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\obj\Debug\T_Rex.csproj.CopyComplete
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\obj\Debug\T-Rex.dll
+E:\Internship\Parametricos\Final\T-Rex\T-Rex\obj\Debug\T-Rex.pdb
+E:\Github Repos\ifcGH\T-Rex\bin\T-Rex.dll
+E:\Github Repos\ifcGH\T-Rex\bin\T-Rex.pdb
+E:\Github Repos\ifcGH\T-Rex\bin\T-RexEngine.dll
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc.dll
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc4.dll
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Common.dll
+E:\Github Repos\ifcGH\T-Rex\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.IO.MemoryModel.dll
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc2x3.dll
+E:\Github Repos\ifcGH\T-Rex\bin\Microsoft.Extensions.Logging.dll
+E:\Github Repos\ifcGH\T-Rex\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Github Repos\ifcGH\T-Rex\bin\T-RexEngine.pdb
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc.pdb
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc.xml
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc4.pdb
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc4.xml
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Common.pdb
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Common.xml
+E:\Github Repos\ifcGH\T-Rex\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.IO.MemoryModel.pdb
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.IO.MemoryModel.xml
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc2x3.pdb
+E:\Github Repos\ifcGH\T-Rex\bin\Xbim.Ifc2x3.xml
+E:\Github Repos\ifcGH\T-Rex\bin\Microsoft.Extensions.Logging.xml
+E:\Github Repos\ifcGH\T-Rex\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Github Repos\ifcGH\T-Rex\obj\Debug\T_Rex.csprojAssemblyReference.cache
+E:\Github Repos\ifcGH\T-Rex\obj\Debug\T_Rex.Properties.Resources.resources
+E:\Github Repos\ifcGH\T-Rex\obj\Debug\T_Rex.csproj.GenerateResource.cache
+E:\Github Repos\ifcGH\T-Rex\obj\Debug\T_Rex.csproj.CoreCompileInputs.cache
+E:\Github Repos\ifcGH\T-Rex\obj\Debug\T_Rex.csproj.CopyComplete
+E:\Github Repos\ifcGH\T-Rex\obj\Debug\T-Rex.dll
+E:\Github Repos\ifcGH\T-Rex\obj\Debug\T-Rex.pdb
